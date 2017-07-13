@@ -2,3 +2,10 @@
     display: flex;
     justify-content: center;
 }
+textarea{
+    resize: none;
+
+}
+body {
+    background-color: green;
+}

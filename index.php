@@ -23,7 +23,7 @@
 
     <div class="col-md-10 col-md-offset-24">
 
-    <form action="form.php" method="post">
+    <form action="enviar.php" method="post">
         <div class="form-group ">
 
             <!-- /*************TIPO***************/-->
@@ -31,8 +31,8 @@
             <select class="form-control" name="tipo" required>
 
                 <option value="" selected="selected">Selecciona Tipo</option>
-                <option value="solicitud">Solicitud</option>
-                <option value="incidencia">Incidencia</option>
+                <option value="Solicitud">Solicitud</option>
+                <option value="Incidencia">Incidencia</option>
 
             </select>
 
@@ -75,7 +75,7 @@
 
             <!--/*****************DESCRIPCION***************/-->
             <label>Descripción</label>
-            <textarea class="form-control" required cols="10" rows="10" name="descripcion"></textarea>
+            <textarea class="form-control" required cols="10" rows="10" name="descripcion" maxlength="500"></textarea>
 
 
 

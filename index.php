@@ -46,11 +46,11 @@
 
             <!--/******************FECHA**************/-->
             <label>Fecha</label>
-            <input type="text" class="form-control" value="<?php echo $fecha ?>" required name="fecha" />
+            <input type="text" class="form-control" value="<?php echo $fecha ?>" required name="fecha" readonly="readonly" />
 
             <!--/*****************HORA***************/-->
             <label>Hora</label>
-            <input type="text" class="form-control" value="<?php echo $hora?>" required  name="hora"/>
+            <input type="text" class="form-control" value="<?php echo $hora?>" required  name="hora" readonly="readonly"/>
 
             <!--/*****************ZONA O SECTOR***************/-->
             <label>Zona o Sector</label>
@@ -75,7 +75,7 @@
 
             <!--/*****************DESCRIPCION***************/-->
             <label>Descripción</label>
-            <textarea class="form-control" required cols="10" rows="10" name="descripcion" maxlength="500"></textarea>
+            <textarea class="form-control" required cols="10" rows="10" name="descripcion" maxlength="1000"></textarea>
 
 
 
@@ -85,7 +85,7 @@
         <br/>
 
         <button type="submit" class="btn btn-default">Enviar</button>
-        <button type="submit" class="btn btn-default">Cancelar</button>
+
 
     </form>
     </div>

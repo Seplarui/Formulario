@@ -40,8 +40,8 @@ $mail->isSMTP();
 $mail->isSMTP(true);
 $mail->Host='smtp.gmail.com';
 $mail->SMTPAuth=true;
-$mail->Username='cuentacorreo@gmail.com';
-$mail->Password='contraseña';
+$mail->Username='';
+$mail->Password='';
 
 $mail->SMTPSecure='tls';
 $mail->Port=587;
@@ -49,8 +49,8 @@ $mail->Port=587;
 /*=========================*/
 
 /** Configuración del correo a enviar. */
-$mail->setFrom('remitente'); //REMITENTE
-$mail->addAddress('destinatario'); //DESTINATARIO
+$mail->setFrom(''); //REMITENTE
+$mail->addAddress(''); //DESTINATARIO
 
 
 $mail->Subject=$tipo .' '.$asunto;
@@ -63,6 +63,27 @@ $mail->Body=$cuerpo;
 $mail->send();
 
 /*=========================*/
+
+/*====================================INSERTAR EN BBDD=============================================*/
+
+$usuario="seplarui";
+$pass="seplarui";
+try {
+    $conexion= new PDO("mysql:host=localhost;dbname=gestion", $usuario, $pass);
+
+
+} catch (PDOException $e) {
+    print "Error de conexion: ".$e->getMessage() ."<br/>";
+    die();
+}
+
+$consulta=$conexion->prepare('INSERT into sol_inc(Tipo, Asunto, Fecha, Hora, Zona_Sector, Trabajador, Vehiculo, Descripcion) VALUES (:Tipo, :Asunto, :Fecha, :Hora, :Zona_Sector,:Trabajador, :Vehiculo,:Descripcion)');
+
+//$datos=array('Asunto'=>$asunto, 'Fecha'=>$fecha,'Hora'=>$hora,'Zona_Sector'=>$zona_sector, 'Trabajador'=>$trabajador, 'Vehiculo'=>$vehiculo, 'Descripcion'=>$descripcion);
+
+$datos=array('Tipo'=>$tipo,'Asunto'=>$asunto, 'Fecha'=>$fecha,'Hora'=>$hora,'Zona_Sector'=>$zona_sector, 'Trabajador'=>$trabajador, 'Vehiculo'=>$vehiculo, 'Descripcion'=>$descripcion);
+
+$consulta->execute($datos);
 
 ?>
 <!DOCTYPE html>
@@ -139,7 +160,7 @@ $mail->send();
 
 
 
-</html>
+
 
 
 
